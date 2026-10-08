@@ -1,0 +1,31 @@
+[
+  {
+    "question": "What is a deadlock?",
+    "language": "English",
+    "source": "operating_systems_notes.pdf",
+    "expected_page": 47,
+    "expected_keywords": ["waiting", "resources", "circular"],
+    "marks": 2
+  },
+  {
+    "question": "डेडलॉक क्या होता है?",
+    "language": "Hindi",
+    "source": "operating_systems_notes.pdf",
+    "expected_page": 47,
+    "expected_keywords": ["deadlock", "डेडलॉक"],
+    "answer_language": "Hindi"
+  },
+  {
+    "question": "டெட்லாக் என்றால் என்ன?",
+    "language": "Tamil",
+    "source": "operating_systems_notes.pdf",
+    "expected_page": 47,
+    "expected_keywords": ["deadlock", "டெட்லாக்"],
+    "answer_language": "Tamil"
+  },
+  {
+    "question": "Who won the 2018 football World Cup?",
+    "language": "English",
+    "should_answer": false
+  }
+]
