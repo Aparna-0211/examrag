@@ -14,9 +14,11 @@ except ImportError:  # pragma: no cover
 
 @dataclass(frozen=True)
 class Settings:
-    llm_provider: str = "anthropic"  # "anthropic" | "ollama"
+    llm_provider: str = "anthropic"  # "anthropic" | "groq" | "ollama"
     anthropic_api_key: str = ""
     anthropic_model: str = "claude-sonnet-4-5"
+    groq_api_key: str = ""
+    groq_model: str = "llama-3.3-70b-versatile"
     ollama_url: str = "http://localhost:11434"
     ollama_model: str = "qwen2.5:7b"
     embedding_model: str = "BAAI/bge-m3"
@@ -34,6 +36,8 @@ def load_settings() -> Settings:
         llm_provider=env("LLM_PROVIDER", "anthropic").lower(),
         anthropic_api_key=env("ANTHROPIC_API_KEY", ""),
         anthropic_model=env("ANTHROPIC_MODEL", "claude-sonnet-4-5"),
+        groq_api_key=env("GROQ_API_KEY", ""),
+        groq_model=env("GROQ_MODEL", "llama-3.3-70b-versatile"),
         ollama_url=env("OLLAMA_URL", "http://localhost:11434"),
         ollama_model=env("OLLAMA_MODEL", "qwen2.5:7b"),
         embedding_model=env("EMBEDDING_MODEL", "BAAI/bge-m3"),

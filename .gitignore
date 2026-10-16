@@ -8,3 +8,5 @@ data/chroma/
 data/uploads/
 .streamlit/secrets.toml
 .DS_Store
+models/
+*.lnk
