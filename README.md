@@ -34,14 +34,39 @@ question ─► embed ─► Chroma (cosine) ─► top-k ─► threshold ─�
 ## Quickstart
 
 ```bash
-git clone https://github.com/<you>/examrag && cd examrag
-python -m venv .venv && source .venv/bin/activate     # Windows: .venv\Scripts\activate
+git clone https://github.com/Aparna-0211/examrag.git
+cd examrag
+python -m venv .venv
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-cp .env.example .env                                  # add ANTHROPIC_API_KEY
+cp .env.example .env               # Windows: copy .env.example .env
+```
+
+Open `.env` and set:
+
+```
+LLM_PROVIDER=groq
+GROQ_API_KEY=your-groq-key        # create one at console.groq.com
+GROQ_MODEL=openai/gpt-oss-120b    # use any chat model your key can access
+EMBEDDING_MODEL=sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+```
+
+Then run:
+
+```bash
 streamlit run app.py
 ```
 
-The first run downloads the embedding model (BGE-M3 is large; see *Choosing models*).
+The first run downloads the embedding model, which needs internet once.
+BGE-M3 gives better multilingual retrieval but is much larger; see *Choosing models*.
+
+**Windows note:** if loading the model fails with a `FileNotFoundError` in the Hugging Face cache, download it into the project folder instead:
+
+```bash
+python -c "from huggingface_hub import snapshot_download; snapshot_download('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2', local_dir='models/minilm')"
+```
+
+and set `EMBEDDING_MODEL=models/minilm` in `.env`.
 
 ## Offline mode
 
